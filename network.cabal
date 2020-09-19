@@ -33,15 +33,14 @@ description:
   > library
   >   build-depends: network-uri-flag
 category:       Network
-build-type:     Configure
+build-type:     Simple
 extra-tmp-files:
   config.log config.status autom4te.cache network.buildinfo
-  include/HsNetworkConfig.h
 extra-source-files:
   README.md CHANGELOG.md
   examples/*.hs tests/*.hs config.guess config.sub install-sh
   configure.ac configure
-  include/HsNetworkConfig.h.in include/HsNet.h include/HsNetDef.h
+  include/HsNetworkConfig.h include/HsNet.h include/HsNetDef.h
   -- C sources only used on some systems
   cbits/asyncAccept.c cbits/initWinSock.c
   cbits/winSockErr.c cbits/cmsg.c
@@ -92,7 +91,7 @@ library
     directory
 
   include-dirs: include
-  includes: HsNet.h HsNetDef.h alignment.h win32defs.h
+  includes: HsNet.h HsNetDef.h HsNetworkConfig.h alignment.h win32defs.h
   install-includes: HsNet.h HsNetDef.h  alignment.h win32defs.h
   c-sources: cbits/HsNet.c cbits/cmsg.c
   ghc-options: -Wall -fwarn-tabs
